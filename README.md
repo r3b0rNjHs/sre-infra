@@ -33,18 +33,18 @@ Upon completion, we expect you to provide:
 
 Objective 1:
 
-- Create the static file in html/index.txt
-- Create the dockerfile with basic configuration
+- Create the static file in html/index.txt.
+- Create the dockerfile with basic configuration.
 - Build the docker image and run the docker container with latest tag:
   `docker build -t nginx-custom-image:latest .` and `docker run -d -p 8080:80 nginx-custom-image:latest ` 
-- Check on http://localhost:8080/index.txt as shown below
+- Check on http://localhost:8080/index.txt as shown below:
 ![hello_world](https://github.com/r3b0rNjHs/sre-infra/raw/main/images/hello_world.jpg)
 
 Objective 2:
 
-- Add docker hub user and password credentials to the github repository secrets
-- create the github action workflow yml inside of folder .github/workflows
-- commit push and check in the github repository action web the workflow:
+- Add docker hub user and password credentials to the github repository secrets.
+- Create the github action workflow yml inside of folder .github/workflows.
+- Commit push and check in the github repository action web the workflow:
 ![github_action](https://github.com/r3b0rNjHs/sre-infra/raw/main/images/github_action.jpg)
 - verify in dockerhub that the docker image have being correctly pushed:
 ![verify](https://github.com/r3b0rNjHs/sre-infra/raw/main/images/verify_nginx_image.jpg)
@@ -52,20 +52,20 @@ Objective 2:
 Objective 3:
 
 - Add Argo CD Helm repository to Helm (after installing minikube and helm, and starting minikube): `helm repo add argo-cd https://argoproj.github.io/argo-helm `
-- Create a values.yaml file with basic Argo CD configuration
-- Install Argo CD using Helm: ` helm install argocd argo-cd/argo-cd -f values.yaml ` in this case i will run it on the default namespace
-- Run the server with: `kubectl port-forward svc/argocd-server 8080:443`
+- Create a values.yaml file with basic Argo CD configuration.
+- Install Argo CD using Helm: ` helm install argocd argo-cd/argo-cd -f values.yaml ` in this case i will run it on the default namespace.
+- Run the server with: `kubectl port-forward svc/argocd-server 8080:443`.
 ![argocd_basic](https://github.com/r3b0rNjHs/sre-infra/raw/main/images/argocd_basic.jpg)
-- Log in with admin and the initial password, the password can be get with: `kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`
-- Notice that it is a initial set up password that is highly recommended to be changed, for this example i just retrieved it and use it
+- Log in with admin and the initial password, the password can be get with: `kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`.
+- Notice that it is a initial set up password that is highly recommended to be changed, for this example i just retrieved it and use it.
 - After log in this will be what will be prompt in the web:
 ![argocd_home](https://github.com/r3b0rNjHs/sre-infra/raw/main/images/argocd_home.jpg)
 
 Objective 4:
 
-- Create the k8s deployment yaml (here we will be adding as a spec the 2 desired replicas), the k8s service yaml and the Argo CD app yaml
-- Apply the manifests to the k8s cluster: `kubectl apply -f argocd/custom-deployment.yaml` and `kubectl apply -f argocd/custom-service.yaml`
-- Apply the Argo CD manifest: `kubectl apply -f argocd/argo-cd-application.yaml`
-- And I was done (kinda, since i had to make some commits to fix health status but the final result will be shown below):
+- Create the k8s deployment yaml (here we will be adding as a spec the 2 desired replicas), the k8s service yaml and the Argo CD app yaml.
+- Apply the manifests to the k8s cluster: `kubectl apply -f argocd/custom-deployment.yaml` and `kubectl apply -f argocd/custom-service.yaml`.
+- Apply the Argo CD manifest: `kubectl apply -f argocd/argo-cd-application.yaml`.
+- Final result shown below:
 ![argocd_app](https://github.com/r3b0rNjHs/sre-infra/raw/main/images/argocd_app.png)
 ![argocd_app_details](https://github.com/r3b0rNjHs/sre-infra/raw/main/images/argocd_app_details.png)
