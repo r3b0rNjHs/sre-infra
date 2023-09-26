@@ -67,5 +67,5 @@ Objective 4:
 - Apply the manifests to the k8s cluster: `kubectl apply -f argocd/custom-deployment.yaml` and `kubectl apply -f argocd/custom-service.yaml`
 - Apply the Argo CD manifest: `kubectl apply -f argocd/argo-cd-application.yaml`
 - And I was done (kinda, since i had to make some commits to fix health status but the final result will be shown below):
-![argocd_app](https://github.com/r3b0rNjHs/sre-infra/raw/main/images/argocd_app.jpg)
-![argocd_app_details](https://github.com/r3b0rNjHs/sre-infra/raw/main/images/argocd_app_details.jpg)
+![argocd_app](https://github.com/r3b0rNjHs/sre-infra/raw/main/images/argocd_app.png)
+![argocd_app_details](https://github.com/r3b0rNjHs/sre-infra/raw/main/images/argocd_app_details.png)
