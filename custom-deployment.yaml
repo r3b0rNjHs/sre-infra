@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: custom-app
+  template:
+    metadata:
+      labels:
+        app: custom-app
+    spec:
+      containers:
+        - name: custom-container
+          image: ${{secrets.DOCKER_USERNAME}}/nginx-custom-image:latest
+          ports:
+            - containerPort: 80
