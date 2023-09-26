@@ -22,7 +22,7 @@ jobs:
       - name: Push Docker image
         run: docker push r3b0rnjhs/nginx-custom-image:latest
 
-      - name: Logout
+      - name: Logout from Docker Hub
         run: docker logout
 
       - name: Cleanup
