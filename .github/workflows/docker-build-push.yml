@@ -17,7 +17,7 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t nginx-custom-image:latest .
+        run: docker build -t r3b0rnjhs/nginx-custom-image:latest .
 
       - name: Push Docker image
         run: docker push r3b0rnjhs/nginx-custom-image:latest
