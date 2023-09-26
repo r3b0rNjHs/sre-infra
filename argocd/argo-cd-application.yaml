@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/r3b0rNjHs/sre-infra'
-    path: '/argocd'
+    path: 'argocd/'
     targetRevision: HEAD
   syncPolicy:
     automated:
